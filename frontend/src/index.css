@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --safe-top: env(safe-area-inset-top);
+  --safe-bottom: env(safe-area-inset-bottom);
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+body {
+  overscroll-behavior-y: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(27, 36, 48, 0.2);
+  border-radius: 999px;
+}
+
+@layer components {
+  .pb-safe-nav {
+    padding-bottom: calc(6rem + var(--safe-bottom));
+  }
+
+  .page-container {
+    @apply max-w-2xl md:max-w-4xl lg:max-w-6xl mx-auto px-5 md:px-8;
+  }
+
+  .page-container-narrow {
+    @apply max-w-6xl mx-auto px-5;
+  }
+
+  .section-title {
+    @apply font-display text-2xl sm:text-3xl text-ink font-semibold tracking-tight;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-candle-500;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink text-parchment-100 font-semibold px-6 py-3.5 text-sm shadow-soft active:scale-[0.97] transition-transform disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-white text-ink font-semibold px-6 py-3.5 text-sm border border-ink/10 active:scale-[0.97] transition-transform disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-candle text-white font-semibold px-6 py-3.5 text-sm shadow-soft active:scale-[0.97] transition-transform disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .card {
+    @apply bg-white rounded-app border border-ink/5 shadow-soft;
+  }
+
+  .input-field {
+    @apply w-full rounded-2xl border border-ink/10 bg-white px-4 py-3.5 text-[15px] text-ink placeholder:text-ink-300 focus:outline-none focus:ring-2 focus:ring-candle/40 focus:border-candle transition;
+  }
+
+  .label-field {
+    @apply block text-sm font-semibold text-ink-400 mb-1.5;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
