@@ -101,17 +101,20 @@ setFreshFire(ff.data.data);
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="mt-9"
+                  className="mt-8 sm:mt-9"
                 >
-                  <p className="text-xs font-semibold text-ink-300 uppercase tracking-[0.16em]">
-                    Sunday Services
-                  </p>
-                  <div className="mt-3 rounded-2xl bg-white shadow-soft ring-1 ring-ink/5 divide-y divide-ink/6 overflow-hidden">
+                  <div className="flex items-center gap-1.5 mb-3">
+                    <PiClockBold size={13} className="text-candle-500" />
+                    <p className="text-xs font-semibold text-ink-300 uppercase tracking-[0.16em]">
+                      Sunday Services
+                    </p>
+                  </div>
+                  <div className="rounded-2xl bg-white shadow-soft ring-1 ring-ink/5 divide-y divide-ink/6 overflow-hidden">
                     {homepage.serviceTimes.map((s, i) => (
-                      <div key={i} className="flex items-center gap-4 px-5 py-3.5">
-                        <span className="h-1.5 w-1.5 rounded-full bg-candle-500 shrink-0" />
-                        <span className="text-sm text-ink-400 flex-1">{s.label}</span>
-                        <span className="font-display text-base font-semibold text-ink tabular-nums">
+                      <div key={i} className="flex items-center gap-3 sm:gap-4 px-4 sm:px-5 py-3.5 sm:py-4">
+                        <span className="h-2 w-2 rounded-full bg-candle-500 shrink-0" />
+                        <span className="text-sm text-ink-400 flex-1 min-w-0 truncate">{s.label}</span>
+                        <span className="font-display text-base font-semibold text-ink tabular-nums shrink-0">
                           {s.time}
                         </span>
                       </div>
