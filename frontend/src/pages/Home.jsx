@@ -101,17 +101,20 @@ setFreshFire(ff.data.data);
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="mt-9"
+                  className="mt-8 sm:mt-9"
                 >
-                  <p className="text-xs font-semibold text-ink-300 uppercase tracking-[0.16em]">
-                    Sunday Services
-                  </p>
-                  <div className="mt-3 rounded-2xl bg-white shadow-soft ring-1 ring-ink/5 divide-y divide-ink/6 overflow-hidden">
+                  <div className="flex items-center gap-1.5 mb-3">
+                    <PiClockBold size={13} className="text-candle-500" />
+                    <p className="text-xs font-semibold text-ink-300 uppercase tracking-[0.16em]">
+                      Sunday Services
+                    </p>
+                  </div>
+                  <div className="rounded-2xl bg-white shadow-soft ring-1 ring-ink/5 divide-y divide-ink/6 overflow-hidden">
                     {homepage.serviceTimes.map((s, i) => (
-                      <div key={i} className="flex items-center gap-4 px-5 py-3.5">
-                        <span className="h-1.5 w-1.5 rounded-full bg-candle-500 shrink-0" />
-                        <span className="text-sm text-ink-400 flex-1">{s.label}</span>
-                        <span className="font-display text-base font-semibold text-ink tabular-nums">
+                      <div key={i} className="flex items-center gap-3 sm:gap-4 px-4 sm:px-5 py-3.5 sm:py-4">
+                        <span className="h-2 w-2 rounded-full bg-candle-500 shrink-0" />
+                        <span className="text-sm text-ink-400 flex-1 min-w-0 truncate">{s.label}</span>
+                        <span className="font-display text-base font-semibold text-ink tabular-nums shrink-0">
                           {s.time}
                         </span>
                       </div>
@@ -163,7 +166,7 @@ setFreshFire(ff.data.data);
       {!!schedules.length && (
 <section className="py-8 md:py-12">
 
-    <div className="flex items-center justify-between mb-6 gap-4">
+    <div className="flex items-start justify-between mb-6 gap-4">
 
         <div>
             <p className="eyebrow mb-1">
@@ -185,6 +188,7 @@ setFreshFire(ff.data.data);
                 items-center 
                 gap-1 
                 shrink-0
+                mt-2
                 hover:text-candle-600
                 transition
             "
@@ -343,17 +347,17 @@ setFreshFire(ff.data.data);
   {/* Fresh Fire */}
 {!!freshFire.length && (
   <section className="py-8 md:py-12">
-    <div className="flex items-center justify-between mb-6 gap-4">
+    <div className="flex items-start justify-between mb-6 gap-4">
       <div>
         <p className="eyebrow mb-1 flex items-center gap-1.5">
           <PiFireBold className="text-candle-500" /> Latest Uploads
         </p>
         <h2 className="section-title">Fresh Fire</h2>
-        <p>Carrying the fire from our altar to yours</p>
+        <p className="text-ink-300 text-sm mt-2">Carrying the fire from our altar to yours</p>
       </div>
       <Link
         to="/fresh-fire"
-        className="text-sm font-semibold text-candle-500 flex items-center gap-1 shrink-0 hover:text-candle-600 transition"
+        className="text-sm font-semibold text-candle-500 flex items-center gap-1 shrink-0 mt-2 hover:text-candle-600 transition"
       >
         See all <PiArrowRightBold />
       </Link>
@@ -420,7 +424,7 @@ setFreshFire(ff.data.data);
         {/* Weekly Word + Recent sermons side by side on desktop */}
         <div className="">
           {word && (
-            <section className="py-6 lg:col-span-2">
+            <section className="py-8 lg:col-span-2">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="section-title">This Week's Word</h2>
                 <Link to="/weekly-word" className="text-sm font-semibold text-candle-500 flex items-center gap-1 shrink-0">
@@ -436,7 +440,7 @@ setFreshFire(ff.data.data);
           )}
 
           {!!sermons.length && (
-            <section className="py-6 lg:col-span-3">
+            <section className="py-8 lg:col-span-3">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="section-title">Recent Sermons</h2>
                 <Link to="/sermons" className="text-sm font-semibold text-candle-500 flex items-center gap-1 shrink-0">
@@ -472,8 +476,8 @@ setFreshFire(ff.data.data);
         {/* Upcoming events */}
        {/* Upcoming Events */}
 {!!events.length && (
-  <section className="py-10">
-    <div className="flex items-center justify-between mb-8">
+  <section className="py-8 md:py-10">
+    <div className="flex items-start justify-between mb-6 md:mb-8 gap-4">
       <div>
         <p className="text-candle-500 uppercase tracking-[0.2em] text-xs font-semibold">
           Join Us
@@ -483,18 +487,18 @@ setFreshFire(ff.data.data);
           Upcoming Events
         </h2>
 
-        <p className="mt-2 text-ink-300 max-w-xl">
+        <p className="mt-2 text-ink-300 text-sm md:text-base max-w-xl">
           Stay connected with our upcoming worship services, conferences,
           fellowships and special church events.
         </p>
       </div>
 
-       <Link to="/events" className="text-sm font-semibold text-candle-500 flex items-center gap-1 shrink-0">
-                See all <PiArrowRightBold />
-              </Link>
+      <Link to="/events" className="text-sm font-semibold text-candle-500 flex items-center gap-1 shrink-0 mt-2">
+        See all <PiArrowRightBold />
+      </Link>
     </div>
 
-    <div className="grid gap-6 lg:grid-cols-2">
+    <div className="grid gap-4 sm:gap-6 lg:grid-cols-2">
       {events.map((e) => (
         <motion.div
           key={e._id}
@@ -512,29 +516,30 @@ setFreshFire(ff.data.data);
           <div className="flex">
 
             {/* Date */}
-<div className="w-24 self-stretch shrink-0 bg-[#F8F5EE] border-r border-[#E9E3D8] flex flex-col items-center justify-center px-4 py-6">    <div className="h-3 w-3 rounded-full bg-candle-400 mb-5"></div>
+            <div className="w-20 sm:w-24 self-stretch shrink-0 bg-[#F8F5EE] border-r border-[#E9E3D8] flex flex-col items-center justify-center px-2.5 sm:px-4 py-5 sm:py-6">
+              <div className="h-3 w-3 rounded-full bg-candle-400 mb-3 sm:mb-5"></div>
 
-    <span className="text-5xl font-bold font-display leading-none text-ink">
-        {new Date(e.startDate).getDate()}
-    </span>
+              <span className="text-4xl sm:text-5xl font-bold font-display leading-none text-ink">
+                {new Date(e.startDate).getDate()}
+              </span>
 
-    <span className="mt-2 text-xs uppercase tracking-[0.25em] font-semibold text-candle-600">
-        {new Date(e.startDate).toLocaleString("en-US", {
-            month: "short",
-        })}
-    </span>
-</div>
+              <span className="mt-2 text-[11px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] font-semibold text-candle-600">
+                {new Date(e.startDate).toLocaleString("en-US", {
+                  month: "short",
+                })}
+              </span>
+            </div>
 
             {/* Details */}
-            <div className="flex-1 p-6">
+            <div className="flex-1 min-w-0 p-4 sm:p-6">
 
-              <h3 className="font-display text-xl font-semibold text-slate-900 mb-5">
+              <h3 className="font-display text-lg sm:text-xl font-semibold text-slate-900 mb-3 sm:mb-5">
                 {e.title}
               </h3>
 
-              <div className="space-y-3">
+              <div className="space-y-2.5 sm:space-y-3">
 
-                <div className="flex items-center gap-3 text-sm text-slate-600">
+                <div className="flex items-center gap-2.5 sm:gap-3 text-sm text-slate-600">
                   <PiCalendarBlankBold className="text-candle-500 shrink-0" />
                   <span>
                     {new Date(e.startDate).toLocaleDateString("en-US", {
@@ -545,7 +550,7 @@ setFreshFire(ff.data.data);
                   </span>
                 </div>
 
-                <div className="flex items-center gap-3 text-sm text-slate-600">
+                <div className="flex items-center gap-2.5 sm:gap-3 text-sm text-slate-600">
                   <PiClockBold className="text-candle-500 shrink-0" />
                   <span>
                     {new Date(e.startDate).toLocaleTimeString([], {
@@ -555,7 +560,7 @@ setFreshFire(ff.data.data);
                   </span>
                 </div>
 
-                <div className="flex items-center gap-3 text-sm text-slate-600">
+                <div className="flex items-center gap-2.5 sm:gap-3 text-sm text-slate-600">
                   <PiMapPinBold className="text-candle-500 shrink-0" />
                   <span className="line-clamp-1">
                     {e.location}
@@ -565,7 +570,7 @@ setFreshFire(ff.data.data);
               </div>
 
               {e.description && (
-                <p className="mt-5 text-sm leading-6 text-slate-500 line-clamp-2">
+                <p className="mt-3 sm:mt-5 text-sm leading-6 text-slate-500 line-clamp-2">
                   {e.description}
                 </p>
               )}
@@ -580,23 +585,23 @@ setFreshFire(ff.data.data);
 )}
 
         {/* Sunday School */}
-        <section className="py-10">
-          <div className="rounded-app bg-ink text-parchment-100 p-8 sm:p-10 relative overflow-hidden sm:flex items-center justify-between gap-8">
+        <section className="py-8 sm:py-10">
+          <div className="rounded-app bg-ink text-parchment-100 p-6 sm:p-10 relative overflow-hidden sm:flex items-center justify-between gap-8">
             <div className="absolute inset-0 bg-candle-glow opacity-40 pointer-events-none" />
-            <div className="relative flex items-start gap-4">
-              <div className="h-12 w-12 rounded-2xl bg-candle-500/15 text-candle-300 grid place-items-center shrink-0">
-                <PiChalkboardTeacherBold size={24} />
+            <div className="relative flex items-start gap-3.5 sm:gap-4">
+              <div className="h-11 w-11 sm:h-12 sm:w-12 rounded-2xl bg-candle-500/15 text-candle-300 grid place-items-center shrink-0">
+                <PiChalkboardTeacherBold size={22} />
               </div>
               <div>
                 <p className="eyebrow !text-candle-300 mb-1">For Our Kids</p>
-                <h2 className="font-display text-2xl font-semibold">Sunday School</h2>
+                <h2 className="font-display text-xl sm:text-2xl font-semibold">Sunday School</h2>
                 <p className="text-parchment-100/70 text-sm mt-2 max-w-md">
                   Beginners, Primary, Juniors and Seniors classes every Sunday — a fun, faith-filled hour just for
                   our children.
                 </p>
               </div>
             </div>
-            <Link to="/sunday-school" className="relative btn-gold mt-6 sm:mt-0 shrink-0 inline-flex">
+            <Link to="/sunday-school" className="relative btn-gold mt-5 sm:mt-0 shrink-0 inline-flex">
               Learn More <PiArrowRightBold />
             </Link>
           </div>
@@ -607,7 +612,7 @@ setFreshFire(ff.data.data);
 {!!gallery.length && (
 <section className="py-8 md:py-12">
 
-    <div className="flex items-start justify-between mb-6 md:mb-8 gap-4">
+    <div className="flex items-start justify-between mb-5 sm:mb-6 md:mb-8 gap-4">
 
         <div>
             <p className="eyebrow">
@@ -684,10 +689,10 @@ setFreshFire(ff.data.data);
 )}
 
         {/* Call to action band */}
-        <section className="py-10">
-          <div className="rounded-app bg-sage-100 p-8 sm:p-10 text-center sm:text-left sm:flex items-center justify-between gap-6">
+        <section className="py-8 sm:py-10">
+          <div className="rounded-app bg-sage-100 p-6 sm:p-10 text-center sm:text-left sm:flex items-center justify-between gap-6">
             <div>
-              <h2 className="font-display text-2xl font-semibold text-ink">New here? We'd love to meet you.</h2>
+              <h2 className="font-display text-xl sm:text-2xl font-semibold text-ink">New here? We'd love to meet you.</h2>
               <p className="text-ink-400 text-sm mt-2 max-w-md">
                 Reach out and we'll help you find your place in our church family.
               </p>

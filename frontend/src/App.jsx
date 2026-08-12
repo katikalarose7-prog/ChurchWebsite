@@ -6,7 +6,6 @@ import ProtectedRoute from './components/ProtectedRoute.jsx';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import PrayerRequests from './pages/PrayerRequests.jsx';
-import Songs from './pages/Songs.jsx';
 import PrayerSchedule from './pages/PrayerSchedule.jsx';
 import WeeklyWord from './pages/WeeklyWord.jsx';
 import Sermons from './pages/Sermons.jsx';
@@ -53,7 +52,6 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/prayer-requests" element={<PrayerRequests />} />
-        <Route path="/songs" element={<Songs />} />
         <Route path="/prayer-schedule" element={<PrayerSchedule />} />
         <Route path="/weekly-word" element={<WeeklyWord />} />
         <Route path="/sermons" element={<Sermons />} />

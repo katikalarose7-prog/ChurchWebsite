@@ -65,10 +65,10 @@ export default function TopNav() {
       className="sticky top-0 z-40 bg-parchment/85 backdrop-blur-xl border-b border-ink/5"
       style={{ paddingTop: 'var(--safe-top)' }}
     >
-      <div className="page-container flex items-center justify-between h-16 gap-2">
-        <Link to="/" className="flex items-center gap-2.5 shrink-0 min-w-0" onClick={() => setOpen(false)}>
+      <div className="page-container flex items-center justify-between min-h-16 py-2 gap-2">
+        <Link to="/" className="flex items-center gap-2 min-w-0 flex-1 lg:flex-initial" onClick={() => setOpen(false)}>
           <img src="/logo.png" alt="New Covenant Church logo" className="h-9 w-9 rounded-full object-cover shrink-0" />
-          <span className="font-display font-semibold text-sm sm:text-base lg:text-lg text-ink truncate max-w-[130px] sm:max-w-none">
+          <span className="font-display font-semibold text-[13.5px] leading-tight sm:text-base lg:text-lg text-ink">
             New Covenant Church
           </span>
         </Link>
