@@ -67,7 +67,7 @@ export default function TopNav() {
     >
       <div className="page-container flex items-center justify-between min-h-16 py-2 gap-2">
         <Link to="/" className="flex items-center gap-2 min-w-0 flex-1 lg:flex-initial" onClick={() => setOpen(false)}>
-          <img src="/logo.png" alt="New Covenant Church logo" className="h-9 w-9 rounded-full object-cover shrink-0" />
+          <img src="/logo.png" alt="New Covenant Church logo" className="h-[4.25rem] w-[4.25rem] rounded-full object-cover shrink-0" />
           <span className="font-display font-semibold text-[13.5px] leading-tight sm:text-base lg:text-lg text-ink">
             New Covenant Church
           </span>
