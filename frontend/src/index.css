@@ -70,7 +70,9 @@ body {
     @apply block text-sm font-semibold text-ink-400 mb-1.5;
   }
 }
-
+.give-heart {
+  color: #e53935;
+}
 /* Respect reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

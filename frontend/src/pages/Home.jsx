@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { PiArrowRightBold, PiCalendarBlankBold, PiMapPinBold, PiPlayFill, PiHeartStraightBold, PiClockBold, PiChalkboardTeacherBold, PiFireBold } from 'react-icons/pi';
+import { PiHeartStraightFill, PiArrowRightBold, PiCalendarBlankBold, PiMapPinBold, PiPlayFill, PiHeartStraightBold, PiClockBold, PiChalkboardTeacherBold, PiFireBold } from 'react-icons/pi';
 import api from '../api/axios.js';
 import Loader from '../components/Loader.jsx';
 import YouTubeEmbed from '../components/YouTubeEmbed.jsx';
@@ -91,8 +91,8 @@ setFreshFire(ff.data.data);
                   <PiPlayFill /> Fresh Fire
                 </Link>
                 <Link to="/give" className="btn-secondary">
-                  <PiHeartStraightBold /> Give Online
-                </Link>
+
+<PiHeartStraightFill className="give-heart" /> Give Online                </Link>
               </motion.div>
 
               {/* Sunday Services */}
