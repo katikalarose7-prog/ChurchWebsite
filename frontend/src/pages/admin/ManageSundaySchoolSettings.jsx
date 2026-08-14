@@ -43,7 +43,7 @@ const [studentList, setStudentList] = useState([]);
     .then(([settingsRes, studentsRes]) => {
       setStudentList(studentsRes.data.data || []);
 
-     const data = res.data.data || {};
+      const data = settingsRes.data.data || {};
 setForm({
   classes: (data.classes || []).filter(Boolean),
   schedule: { day: '', time: '', note: '', ...data.schedule },
@@ -63,7 +63,7 @@ setForm({
   title: data.title,
   description: data.description,
   image: data.image,
-})
+});
     })
     .finally(() => setLoading(false));
 }, []);
