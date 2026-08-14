@@ -43,15 +43,27 @@ const [studentList, setStudentList] = useState([]);
     .then(([settingsRes, studentsRes]) => {
       setStudentList(studentsRes.data.data || []);
 
-      setForm({
-        classes: [],
-        schedule: { day: '', time: '', note: '' },
-        events: [],
-        winners: [],
-        christmas: { title: '', date: '', description: '', images: [] },
-        gallery: [],
-        ...settingsRes.data.data,
-      });
+     const data = res.data.data || {};
+setForm({
+  classes: (data.classes || []).filter(Boolean),
+  schedule: { day: '', time: '', note: '', ...data.schedule },
+  events: (data.events || []).filter(Boolean),
+  winners: (data.winners || []).filter(Boolean).map((w) => ({
+    ...w,
+    students: (w.students || []).filter(Boolean),
+  })),
+  christmas: {
+    title: '',
+    date: '',
+    description: '',
+    ...data.christmas,
+    images: (data.christmas?.images || []).filter(Boolean),
+  },
+  gallery: (data.gallery || []).filter(Boolean),
+  title: data.title,
+  description: data.description,
+  image: data.image,
+})
     })
     .finally(() => setLoading(false));
 }, []);
