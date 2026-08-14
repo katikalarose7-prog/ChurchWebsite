@@ -84,9 +84,25 @@ app.use(
     referrerPolicy: { policy: 'strict-origin-when-cross-origin' },
   })
 );
+
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  'https://www.newcovenantchurchesofindia.com',
+  'https://newcovenantchurchesofindia.com',
+  'https://newcovenantchurch.vercel.app',
+  'http://localhost:5173',
+].filter(Boolean);
+
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: function (origin, callback) {
+      // allow requests with no origin (like curl, mobile apps, or server-to-server)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error(`Not allowed by CORS: ${origin}`));
+      }
+    },
     credentials: true,
   })
 );
